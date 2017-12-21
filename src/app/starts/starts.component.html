@@ -1,3 +1,4 @@
-<span *ngFor="let star of stars" class="glyphicon glyphicon-star" [class.glyphicon-star-empty]="star">
+<span *ngFor="let star of stars;let i=index" class="glyphicon glyphicon-star"
+      [class.glyphicon-star-empty]="star" (click)="clickStar(i)"><!--当star为true时，多一个空星星-->
 
 </span><!--glyphicon glyphicon-star-empty-->
