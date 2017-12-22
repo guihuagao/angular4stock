@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WebSocketService} from "./web-socket.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,9 @@ import {WebSocketService} from "./web-socket.service";
 })
 export class HeaderComponent implements OnInit {
   messageCount=0;
+
+  title=environment.appTitle;
+
   constructor( public webSocketService:WebSocketService) {
   }
 
