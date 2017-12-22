@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StockFormComponent } from './stock/stock-form/stock-form.component';
 import {StockService} from "./stock/stock.service";
 import { StockFilterPipe } from './stock/stock-filter.pipe';
+import {WebSocketService} from "./header/web-socket.service";
 
 const routeConfig:Routes=[
   {path:'',redirectTo:'/dashboard',pathMatch:'full'},
@@ -44,7 +45,7 @@ const routeConfig:Routes=[
     ReactiveFormsModule,
     RouterModule.forRoot(routeConfig)
   ],
-  providers: [StockService],
+  providers: [StockService,WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

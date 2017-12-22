@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {WebSocketService} from "./web-socket.service";
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  messageCount=0;
+  constructor( public webSocketService:WebSocketService) {
+  }
 
   ngOnInit() {
+
+    this.webSocketService.createObservableSocket('ws://localhost:8081')
+      .map(event=>JSON.parse(event))
+      .subscribe(
+        event=>this.messageCount=event.messageCount
+      )
+
   }
 
 }
